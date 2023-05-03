@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="display:flex;align-items: center;text-align:center">
+    <img src="~/css/bookshelf.jpg" alt="bookshelf_image" width="300" style="margin-left:10%">
+    <h2>Our Bookshelf</h2>
+    <img src="~/css/bookshelf.jpg" alt="bookshelf_image" width="300">
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FrontPage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearPublished)
+            </th>
+            <th>
+                Average Rating
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="@item.FrontPage" alt="book front page" width="70px">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @if (item.AuthorId != null)
+                {
+                    <a asp-controller="Authors" asp-action="Details" asp-route-id="@item.AuthorId"> @Html.DisplayFor(modelItem => item.Author.FullName)</a>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearPublished)
+            </td>
+            <td>
+                da se stavi presmetkata
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
