@@ -1,0 +1,33 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.container {
+    display: flex;
+}
+
+h1, h2 {
+    color: #937D5D;
+    font-family: Courier New;
+}
+
+header a:hover {
+    background-color: #f7f4ed;
+    color: #ffffff;
+    text-decoration: none;
+}
